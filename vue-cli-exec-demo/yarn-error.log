@@ -1,0 +1,49 @@
+Arguments: 
+  D:\DevSoftware\nodejs\node.exe D:\DevSoftware\nodejs\node_global\node_modules\yarn\bin\yarn.js add -D webpack -webpacl-cli
+
+PATH: 
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\DevSoftware\nodejs\;D:\DevSoftware\nodejs\node_global;D:\DevSoftware\nodejs\node_cache;D:\DevSoftware\Git\cmd;C:\Users\yzff_vinz\AppData\Local\Programs\Python\Python38-32\Scripts;C:\Users\yzff_vinz\AppData\Local\Programs\Python\Python38-32;D:\software\TortoiseGit\bin;D:\software\WinSCP\;C:\Users\yzff_vinz\AppData\Local\Microsoft\WindowsApps;C:\Users\yzff_vinz\AppData\Roaming\npm;D:\DevSoftware\apache-maven\bin;D:\DevSoftware\jdk\bin;D:\DevSoftware\jdk\jre\bin;C:\Users\yzff_vinz\AppData\Local\Yarn\Data\global\node_modules\.bin;
+
+Yarn version: 
+  1.22.0
+
+Node version: 
+  12.14.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/-c: Not found
+      at Request.params.callback [as _callback] (D:\DevSoftware\nodejs\node_global\node_modules\yarn\lib\cli.js:66975:18)
+      at Request.self.callback (D:\DevSoftware\nodejs\node_global\node_modules\yarn\lib\cli.js:140727:22)
+      at Request.emit (events.js:223:5)
+      at Request.<anonymous> (D:\DevSoftware\nodejs\node_global\node_modules\yarn\lib\cli.js:141699:10)
+      at Request.emit (events.js:223:5)
+      at IncomingMessage.<anonymous> (D:\DevSoftware\nodejs\node_global\node_modules\yarn\lib\cli.js:141621:12)
+      at Object.onceWrapper (events.js:312:28)
+      at IncomingMessage.emit (events.js:228:7)
+      at endReadableNT (_stream_readable.js:1185:12)
+      at processTicksAndRejections (internal/process/task_queues.js:81:21)
+
+npm manifest: 
+  {
+    "name": "vue-cli-exec-demo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "vue": "^2.6.11"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
