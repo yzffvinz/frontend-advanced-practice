@@ -1,10 +1,14 @@
 const path = require('path');
 
-module.exports = {
-  mode: 'none', // none, development, production：压缩级别逐渐提高
-  entry: './src/components/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+
+
+module.exports = env => {
+  env = env || {};
+  return {
+    entry: './src/components/index.js',
+    ...(env.development) ? require('./config/webpack.development.js') : require('./config/webpack.production.js'),
+    module: {
+      rules: []
+    }
   }
-};
+}
