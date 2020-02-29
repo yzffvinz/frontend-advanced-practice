@@ -10,8 +10,8 @@ module.exports = {
   },
   plugins: [
     new htmlWebpackPlugin({
-      template: '../public/index.html',
-      filename: './index.html'
+      template: '../public/index.template.html',
+      filename: './index.template.html'
     })
   ]
 };

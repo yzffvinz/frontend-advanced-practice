@@ -1,3 +1,2 @@
 .idea/
-/ssr/ssr-demo/node_modules
-/vue-cli-exec-demo/node_modules
+**/node_modules
