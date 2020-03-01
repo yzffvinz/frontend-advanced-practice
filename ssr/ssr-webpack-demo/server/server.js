@@ -1,26 +1,29 @@
-const fs = require('fs');
-const path = require('path');
-const express = require('express');
-const { createBundleRenderer } = require('vue-server-renderer');
-const resolve = file => path.resolve(__dirname, file);
-const server = express();
+const fs = require('fs')
+const path = require('path')
+const express = require('express')
+const vueRenderer = require('vue-server-renderer')
+const resolve = file => path.resolve(__dirname, file)
 
-const bundle = fs.readFileSync(resolve('../dist/server/server-bundle.js'), 'utf-8');
-const template = fs.readFileSync('../public/index.ssr.html', 'utf-8')
-const renderer = createBundleRenderer(bundle, { template });
+const app = express()
 
-server.get('*', async (req, res) => {
+const createRenderer =  bundle => {
+  // https://github.com/isaacs/node-lru-cache#options
+  return vueRenderer.createBundleRenderer(bundle, {
+    template: fs.readFileSync(resolve('../public/index.ssr.html'), 'utf-8')
+  })
+}
+
+let renderer = createRenderer(fs.readFileSync(resolve('../dist/server-bundle.js'), 'utf-8'))
+
+app.get('*', async (req, res) => {
   try {
-    if (renderer) {
-      const renderStream = await renderer.renderToString({ url: req.url });
-      res.end(renderStream);
-    } else {
-      res.end('renderer is not ready')
-    }
+    const context = {url: req.url}
+    const renderStream = await renderer.renderToString(context)
+    res.end(renderStream);
   } catch (e) {
-    console.log(e);
-    res.end('inner error');
+    console.log(e)
+    res.end()
   }
-});
+})
 
-server.listen(7070);
+app.listen(7070)

@@ -13,7 +13,7 @@ export default context => {
       // 因为上方设置了服务器端的router，所以这里会根据上方设置的context.url找到对应的components
       const matchedComponents = router.getMatchedComponents()
       if (!matchedComponents.length) {
-        resolve({ code: 404 })
+        return Promise.reject({ code: '404' })
       }
       resolve(app)
     }, reject)
