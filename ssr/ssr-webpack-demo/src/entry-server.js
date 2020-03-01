@@ -6,13 +6,11 @@ export default context => {
   // 就已经准备就绪。
   return new Promise((resolve, reject) => {
     const { app, router } = createApp()
-    // TODO 设置服务器端router位置
+    // 跳转到首屏
     router.push(context.url)
 
     router.onReady(() => {
       // 因为上方设置了服务器端的router，所以这里会根据上方设置的context.url找到对应的components
-
-      
       const matchedComponents = router.getMatchedComponents()
       if (!matchedComponents.length) {
         resolve({ code: 404 })
